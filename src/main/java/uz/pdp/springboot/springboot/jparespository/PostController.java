@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -73,4 +74,40 @@ public class PostController {
     public Post save(@RequestBody Post post) {
         return customPostRepository.save(post);
     }
+
+    @GetMapping("/query/{title}/{userId}")
+    public Post findByTitle(@PathVariable String title, @PathVariable Integer userId) {
+        return postRepository.findByTitleIgnoreCaseAndUserId(title, userId);
+    }
+
+    @GetMapping("/query-st/{title}")
+    public List<Post> findByTitleSt(@PathVariable String title) {
+        return postRepository.findAllByTitleStartingWith(title);
+    }
+
+    @GetMapping("/query-en/{title}")
+    public List<Post> findByTitleEn(@PathVariable String title) {
+        return postRepository.findAllByTitleEndingWith(title);
+    }
+
+    @GetMapping("/interface-projection/{userId}")
+    public List<IPostDTO> interfaceProjection(@PathVariable Integer userId) {
+        return postRepository.findAllByUserIdLessThanEqual(userId);
+    }
+
+    @GetMapping("/class-projection/{userId}")
+    public List<PostDTO> classProjection(@PathVariable Integer userId) {
+        return postRepository.findAllByUserIdGreaterThanEqual(userId);
+    }
+
+    @GetMapping("/class-projection")
+    public List<PostDTO> classProjection() {
+        List<PostDTO> postDTOS = new ArrayList<>();
+        for (Object[] row : postRepository.findAllByClassProjection()) {
+            postDTOS.add(new PostDTO((Integer) row[0], (String) row[1]));
+        }
+        return postDTOS;
+    }
+
+
 }

@@ -41,4 +41,24 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     @Transactional
     @Query("delete Post p where p.userId = ?1")
     void deletePostsByUserId(Integer userId);
+
+    Post findByTitleIgnoreCaseAndUserId(String title, Integer userId);
+
+    List<Post> findAllByTitleStartingWith(String title);
+
+    List<Post> findAllByTitleEndingWith(String title);
+
+    List<IPostDTO> findAllByUserIdLessThanEqual(Integer userId);
+
+    List<PostDTO> findAllByUserIdGreaterThanEqual(Integer userId);
+
+    // JPQL
+    // @Query("select new uz.pdp.springboot.springboot.jparespository.PostDTO(p.id, p.title) from Post p")
+    // Native Query
+    // @Query(nativeQuery = true, name = "Post.find.all.by.projection")
+    @Query(nativeQuery = true, value = "select id, title from post")
+    List<Object[]> findAllByClassProjection();
+
+    // Optional<Post> findByTitle(String title);
+
 }
