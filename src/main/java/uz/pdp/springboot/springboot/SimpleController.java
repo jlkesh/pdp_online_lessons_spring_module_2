@@ -17,8 +17,6 @@ public class SimpleController {
     @Value("${example.string:'Default Message(Learn Java In PDP)' }")
     private String exampleString;
 
-    @Value("#{'${example.languages}'.split('# ')}")
-    private List<String> exampleLanguages;
 
     @Value("#{${example.numbers}}")
     private Map<String, String> exampleNumbers;
@@ -32,22 +30,32 @@ public class SimpleController {
         return exampleString;
     }
 
+
     @GetMapping("/exampleLanguages")
     public List<String> exampleLanguages() {
-        return exampleLanguages;
+        return personProperties.getLanguages();
     }
+
+    @GetMapping("/exampleLanguages2")
+    public List<String> exampleLanguages2() {
+        return personProperties.getLanguages2();
+    }
+
 
     @GetMapping("/exampleNumbers")
     public Map<String, String> exampleNumbers() {
         return exampleNumbers;
     }
+
     @GetMapping("/person")
     public Person person() {
         return personProperties.getPerson();
     }
+
     @GetMapping("/people")
     public List<Person> people() {
         return personProperties.getPeople();
     }
+
 
 }

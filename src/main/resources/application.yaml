@@ -1,0 +1,31 @@
+example:
+  string: >
+    Hello PDP 
+    Hello PDP 
+    Hello PDP 
+    Hello PDP 
+    Hello PDP 
+    Hello PDP 
+    Hello PDP 
+    Hello PDP 
+
+  languages:
+    - Java
+    - Python
+    - Scala
+    - Kotlin
+    - Groovy
+  languages2: [ Java, Python, Scala, Kotlin, Groovy ]
+  numbers: "{'one' : 'bir', 'two' : 'ikki'}"
+  person: { 'id' : '1' , 'firstName' : Javohir , "lastName" : Elmurodov, "age" : 28 }
+  people:
+    - id: ${random.uuid}
+      firstName: Jasur
+      lastName: Hamdamov
+      fullName: ${example.person.firstName} ${example.person.lastName}
+      age: ${random.int(18,30)}
+    - id: ${random.uuid}
+      firstName: NurIslom
+      lastName: Xasanov
+      fullName: ${example.person.firstName} ${example.person.lastName}
+      age: ${random.int(18,30)}
