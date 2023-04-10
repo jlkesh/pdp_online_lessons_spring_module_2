@@ -1,20 +1,25 @@
 package uz.pdp.springboot.springboot.post;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Entity
+import java.time.LocalDateTime;
+
+
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Builder
 public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private Integer userId;
+    private String id;
     private String title;
     private String body;
+    private int viewCount;
+    private int likeCount;
+    private int dislikeCount;
+    private int shareCount;
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
+
 }
