@@ -1,0 +1,86 @@
+spring:
+  profiles:
+    active: test
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  task:
+    execution:
+      pool:
+        core-size: 20
+        max-size: 100
+        keep-alive: '60s'
+        queue-capacity: 500
+      thread-name-prefix: prod-
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/springprofile1'
+    username: postgres
+    password: 123
+    driver-class-name: 'org.postgresql.Driver'
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  task:
+    execution:
+      pool:
+        core-size: 2
+        max-size: 4
+        keep-alive: '10s'
+        queue-capacity: 20
+      thread-name-prefix: dev-
+  datasource:
+    url: 'jdbc:h2:mem:~'
+    username: user
+    password: 123
+    driver-class-name: 'org.h2.Driver'
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 10
+        keep-alive: '30s'
+        queue-capacity: 40
+      thread-name-prefix: test-
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/springprofile2'
+    username: postgres
+    password: 123
+    driver-class-name: 'org.postgresql.Driver'
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+

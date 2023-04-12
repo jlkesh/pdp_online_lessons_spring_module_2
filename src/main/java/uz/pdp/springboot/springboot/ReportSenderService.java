@@ -26,7 +26,7 @@ public class ReportSenderService {
         } catch (Exception ignored) {
         }
         log.info("Report Sent !!!");
-        throw new RuntimeException("Runtime Exception " + LocalDate.now());
+        /*throw new RuntimeException("Runtime Exception " + LocalDate.now());*/
         /*executorService.submit(runnable);*/
         /*CompletableFuture.runAsync(runnable);*/
     }
