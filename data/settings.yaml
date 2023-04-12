@@ -1,0 +1,5 @@
+datasource:
+  username: postgres
+  password: 123
+  url: localhost:5432
+  database: pdp_jackson
