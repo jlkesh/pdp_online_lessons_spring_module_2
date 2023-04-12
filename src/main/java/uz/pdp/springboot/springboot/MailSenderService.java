@@ -21,7 +21,7 @@ import java.util.Map;
 
 @Component
 public class MailSenderService {
-    private final JavaMailSender javaMailSender;
+    /*private final JavaMailSender javaMailSender;
     private final Configuration configuration;
 
     public MailSenderService(JavaMailSender javaMailSender,
@@ -37,7 +37,7 @@ public class MailSenderService {
             mimeMessage.setFrom("from@mail.ru");
             mimeMessage.setRecipients(Message.RecipientType.TO, "to@gmail.com");
             mimeMessage.setSubject("Subject From Test Simple Mail");
-            /*mimeMessage.setText("Hello From PDP Online");*/
+            *//*mimeMessage.setText("Hello From PDP Online");*//*
             mimeMessage.setContent("<h1 style=\"color: red;\">Hello From PDP Online</h1>", "text/html");
             javaMailSender.send(mimeMessage);
         } catch (MessagingException e) {
@@ -99,10 +99,10 @@ public class MailSenderService {
 
             Path path = Path.of("src/main/resources/activate.html");
             Path imgPath = Path.of("src/main/resources/img.jpg");
-            /*Base64.Encoder encoder = Base64.getEncoder();
-            String imageAsBase64 = encoder.encodeToString(Files.readAllBytes(imgPath));*/
+            *//*Base64.Encoder encoder = Base64.getEncoder();
+            String imageAsBase64 = encoder.encodeToString(Files.readAllBytes(imgPath));*//*
             String htmlMailContent = Files.readString(path);
-            /*htmlMailContent = htmlMailContent.formatted(imageAsBase64);*/
+            *//*htmlMailContent = htmlMailContent.formatted(imageAsBase64);*//*
             mimeMessageHelper.setText(htmlMailContent, true);
             mimeMessageHelper.addInline("image_id", new FileSystemResource(imgPath));
             javaMailSender.send(mimeMessage);
@@ -128,5 +128,5 @@ public class MailSenderService {
         } catch (MessagingException | IOException | TemplateException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
