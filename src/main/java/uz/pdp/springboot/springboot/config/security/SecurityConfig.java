@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import uz.pdp.springboot.springboot.dto.reponse.AppErrorDto;
+import uz.pdp.springboot.springboot.dtos.reponse.AppErrorDto;
 
 import java.util.List;
 

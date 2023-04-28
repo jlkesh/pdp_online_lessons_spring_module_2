@@ -1,7 +1,7 @@
 package uz.pdp.springboot.springboot.mappers;
 
 import org.mapstruct.*;
-import uz.pdp.springboot.springboot.dto.auth.AuthUserCreateDto;
+import uz.pdp.springboot.springboot.dtos.auth.AuthUserCreateDto;
 import uz.pdp.springboot.springboot.entities.AuthUser;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)

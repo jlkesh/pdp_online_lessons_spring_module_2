@@ -51,7 +51,8 @@ public class SpringdocConfig {
                         .description("SpringShop Wiki Documentation")
                         .url("https://springshop.wiki.github.org/docs"))
                 .servers(List.of(
-                        new Server().url("http://localhost:9090").description("Test Server")
+                        new Server().url("http://localhost:8080").description("Test Server"),
+                        new Server().url("http://localhost:9090").description("Prod Server")
                 )).addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
                 .components((new Components()
                         .addSecuritySchemes("bearerAuth", new SecurityScheme()
@@ -65,7 +66,7 @@ public class SpringdocConfig {
     @Bean
     public GroupedOpenApi allAPIsGroup() {
         return GroupedOpenApi.builder()
-                .group("All APIs")
+                .group("Swagger UI FOR All APIs")
                 .pathsToMatch("/api/**")
                 .build();
     }

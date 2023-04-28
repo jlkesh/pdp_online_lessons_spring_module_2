@@ -1,17 +1,15 @@
-package uz.pdp.springboot.springboot.dto.reponse;
+package uz.pdp.springboot.springboot.dtos.reponse;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
-@ToString
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 public class AppErrorDto {
     private final String friendlyMessage;
-    private final String developerMessage;
+    private final Object developerMessage;
     private final String errorPath;
     private final Integer errorCode;
 
@@ -19,7 +17,7 @@ public class AppErrorDto {
         this(friendlyMessage, friendlyMessage, errorPath, errorCode);
     }
 
-    public AppErrorDto(String friendlyMessage, String developerMessage, String errorPath, Integer errorCode) {
+    public AppErrorDto(String friendlyMessage, Object developerMessage, String errorPath, Integer errorCode) {
         this.friendlyMessage = friendlyMessage;
         this.developerMessage = developerMessage;
         this.errorPath = errorPath;

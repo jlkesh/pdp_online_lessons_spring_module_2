@@ -26,7 +26,7 @@
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
-    <appender name="TelegramAppender" class="uz.pdp.springboot.springboot.TelegramAppender">
+    <appender name="TelegramAppender" class="uz.pdp.springboot.springboot.utils.TelegramAppender">
     </appender>
 
     <root level="info">

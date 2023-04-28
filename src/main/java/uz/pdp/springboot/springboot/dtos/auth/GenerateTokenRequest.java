@@ -1,4 +1,4 @@
-package uz.pdp.springboot.springboot.controllers;
+package uz.pdp.springboot.springboot.dtos.auth;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

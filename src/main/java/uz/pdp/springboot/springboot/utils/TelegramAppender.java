@@ -7,14 +7,21 @@ import ch.qos.logback.core.AppenderBase;
 import ch.qos.logback.core.filter.Filter;
 import ch.qos.logback.core.spi.FilterReply;
 import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
+import jakarta.annotation.PostConstruct;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+@Aspect
 @Component
 public class TelegramAppender extends AppenderBase<LoggingEvent> {
-    private static final String botToken = "6119464761:AAGBu2CIA-6dgbadAdlrF3umC19UqM3iYgo";
-    private static final String chatID = "5270439889";
-    private static final TelegramBot telegramBot = new TelegramBot(botToken);
+
+    private final String chatID = "5270439889";
+    private final String token = "6119464761:AAHsT8AiSPg0MNnXF7znuUxGCFvXIm9dZtg";
+    private final TelegramBot telegramBot = new TelegramBot(token);
 
     public TelegramAppender() {
         addFilter(new Filter<>() {
@@ -27,8 +34,8 @@ public class TelegramAppender extends AppenderBase<LoggingEvent> {
 
     @Override
     protected void append(LoggingEvent loggingEvent) {
-        String logMessage = loggingEvent.toString();
-        SendMessage sendMessage = new SendMessage(chatID, logMessage);
+        SendMessage sendMessage = new SendMessage(chatID, loggingEvent.getFormattedMessage());
+        sendMessage.parseMode(ParseMode.Markdown);
         telegramBot.execute(sendMessage);
     }
 }
