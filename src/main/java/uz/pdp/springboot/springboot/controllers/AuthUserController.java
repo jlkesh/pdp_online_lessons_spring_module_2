@@ -27,4 +27,5 @@ public class AuthUserController {
     public ResponseEntity<String> createUser(@Valid @RequestBody AuthUserCreateDto dto) {
         return ResponseEntity.status(201).body(authUserService.register(dto));
     }
+
 }
