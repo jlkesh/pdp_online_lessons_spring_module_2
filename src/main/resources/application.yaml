@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: dev
+  freemarker:
+    template-loader-path: 'classpath:/templates'
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  mail:
+    host: 'sandbox.smtp.mailtrap.io'
+    port: 587
+    username: 76c730003d7099
+    password: 1c86aaf56c4d88
+    properties:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+  datasource:
+    url: jdbc:h2:file:./db
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:h2:file:./db
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
