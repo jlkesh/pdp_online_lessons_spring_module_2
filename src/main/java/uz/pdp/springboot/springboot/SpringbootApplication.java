@@ -8,8 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.web.HateoasPageableHandlerMethodArgumentResolver;
 import org.springframework.data.web.PagedResourcesAssembler;
-import uz.pdp.springboot.springboot.post.Post;
-import uz.pdp.springboot.springboot.post.PostRepository;
+import uz.pdp.springboot.springboot.post.*;
 
 import java.lang.reflect.Type;
 import java.net.URL;
