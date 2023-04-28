@@ -35,7 +35,7 @@ public class PostController {
         return postModelAssembler.toCollectionModel(posts);
     }
 
-    @GetMapping("/page")
+    @GetMapping("/paged")
     public PagedModel<EntityModel<Post>> getPage(@RequestParam(required = false, defaultValue = "10") int size,
                                                  @RequestParam(required = false, defaultValue = "0") int page) {
         Pageable pageable = PageRequest.of(page, size);
