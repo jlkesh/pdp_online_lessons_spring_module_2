@@ -23,4 +23,15 @@ public class AppErrorDto {
         this.errorPath = errorPath;
         this.errorCode = errorCode;
     }
+
+    @Override
+    public String toString() {
+        return """
+                \n
+                *friendlyMessage : %s*
+                *errorPath : %s*
+                *errorCode : %s*
+                *developerMessage* : `%s`
+                """.formatted(friendlyMessage, errorPath, errorCode, developerMessage);
+    }
 }

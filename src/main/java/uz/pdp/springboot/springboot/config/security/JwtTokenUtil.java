@@ -17,7 +17,6 @@ public class JwtTokenUtil {
     public static final String SECRET_KEY = "7134743777217A25432A462D4A614E645267556B58703272357538782F413F44";
 
     public String generateToken(@NonNull String username) {
-        // TODO: 28/04/23 change expiry and secret key move those to application.yaml
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())

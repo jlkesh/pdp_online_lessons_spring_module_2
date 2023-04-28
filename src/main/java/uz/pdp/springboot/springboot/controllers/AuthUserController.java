@@ -4,10 +4,7 @@ package uz.pdp.springboot.springboot.controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uz.pdp.springboot.springboot.dtos.auth.AuthUserCreateDto;
 import uz.pdp.springboot.springboot.dtos.auth.GenerateTokenRequest;
 import uz.pdp.springboot.springboot.services.AuthUserService;
@@ -27,5 +24,12 @@ public class AuthUserController {
     public ResponseEntity<String> createUser(@Valid @RequestBody AuthUserCreateDto dto) {
         return ResponseEntity.status(201).body(authUserService.register(dto));
     }
+
+    @GetMapping("/activate/{code}")
+    public ResponseEntity<String> activateAccount(@PathVariable String code) {
+        return ResponseEntity.ok(authUserService.activateAccount(code));
+    }
+
+    // TODO: 29/04/23 activation code ni qayta jo'natadigan api qo'shish kerak (email)
 
 }

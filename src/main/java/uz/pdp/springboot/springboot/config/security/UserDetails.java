@@ -13,10 +13,12 @@ public class UserDetails implements org.springframework.security.core.userdetail
 
     private Long id;
     private final AuthUser authUser;
+    private String email;
 
     public UserDetails(@NonNull AuthUser authUser) {
         this.authUser = authUser;
         this.id = authUser.getId();
+        this.email = authUser.getEmail();
     }
 
     @Override
@@ -56,5 +58,9 @@ public class UserDetails implements org.springframework.security.core.userdetail
 
     public Long getId() {
         return id;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }

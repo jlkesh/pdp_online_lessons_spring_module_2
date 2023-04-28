@@ -20,10 +20,10 @@ spring:
         starttls:
           enable: true
   datasource:
-    url: jdbc:h2:file:./db
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://localhost:5432/shorturl
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
     hibernate:
@@ -38,10 +38,10 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    url: jdbc:h2:file:./db
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://localhost:5432/shorturl
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
     hibernate:
@@ -49,9 +49,4 @@ spring:
     properties:
       hibernate:
         format_sql: true
-telegram:
-  bot:
-    token: 6119464761:AAHsT8AiSPg0MNnXF7znuUxGCFvXIm9dZtg
-    chat:
-      id: '5270439889'
 

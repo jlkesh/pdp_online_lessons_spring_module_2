@@ -8,4 +8,6 @@ public interface AuthUserService {
     String register(@NonNull AuthUserCreateDto dto);
 
     String generateToken(@NonNull GenerateTokenRequest request);
+
+    String activateAccount(@NonNull String code);
 }

@@ -8,6 +8,6 @@ import uz.pdp.springboot.springboot.entities.AuthUser;
 public interface AuthUserMapper {
     AuthUser toEntity(AuthUserCreateDto authUserCreateDto);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    AuthUser partialUpdate(AuthUserCreateDto authUserCreateDto, @MappingTarget AuthUser authUser);
+    /*@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    AuthUser partialUpdate(AuthUserCreateDto authUserCreateDto, @MappingTarget AuthUser authUser);*/
 }
